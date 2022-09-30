@@ -1,0 +1,58 @@
+Name:         backend-user-857d9bc9f9-26lbj
+Namespace:    default
+Priority:     0
+Node:         ip-192-168-124-115.ec2.internal/192.168.124.115
+Start Time:   Fri, 30 Sep 2022 16:24:43 +0100
+Labels:       pod-template-hash=857d9bc9f9
+              service=backend-user
+Annotations:  kubernetes.io/psp: eks.privileged
+Status:       Running
+IP:           192.168.120.234
+IPs:
+  IP:           192.168.120.234
+Controlled By:  ReplicaSet/backend-user-857d9bc9f9
+Containers:
+  backend-user:
+    Container ID:   docker://2acddb2f44d465ee7763647c489f72a8fcb8ed35d50fd64733e9bbf9e8ebbd0d
+    Image:          mymobantz/udagram-api-user:v2
+    Image ID:       docker-pullable://mymobantz/udagram-api-user@sha256:4d24ae248433ce8e4cc1f0b117446dc4bd389f3e07ee53f68930a50a7e10f436
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 30 Sep 2022 16:25:16 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      URL:                <set to the key 'URL' of config map 'env-config'>            Optional: false
+      JWT_SECRET:         <set to the key 'JWT_SECRET' of config map 'env-config'>     Optional: false
+      POSTGRES_DB:        <set to the key 'POSTGRES_DB' of config map 'env-config'>    Optional: false
+      POSTGRES_HOST:      <set to the key 'POSTGRES_HOST' of config map 'env-config'>  Optional: false
+      POSTGRES_PASSWORD:  <set to the key 'POSTGRES_PASSWORD' in secret 'env-secret'>  Optional: false
+      POSTGRES_USERNAME:  <set to the key 'POSTGRES_USERNAME' in secret 'env-secret'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-m69qb (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-m69qb:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  46m   default-scheduler  Successfully assigned default/backend-user-857d9bc9f9-26lbj to ip-192-168-124-115.ec2.internal
+  Normal  Pulling    46m   kubelet            Pulling image "mymobantz/udagram-api-user:v2"
+  Normal  Pulled     46m   kubelet            Successfully pulled image "mymobantz/udagram-api-user:v2" in 27.047526944s
+  Normal  Created    46m   kubelet            Created container backend-user
+  Normal  Started    46m   kubelet            Started container backend-user
